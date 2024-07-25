@@ -2,8 +2,16 @@ module MoneyTree
   class Node
     include Support
     extend Support
-    attr_reader :private_key, :public_key, :chain_code,
-      :is_private, :depth, :index, :parent
+
+    attr_reader :private_key
+    attr_reader :public_key
+    attr_reader :chain_code
+    attr_reader :is_private
+    attr_reader :depth
+    attr_reader :index
+    attr_reader :parent
+
+    PRIVATE_RANGE_LIMIT = 0x80000000
 
     class PublicDerivationFailure < StandardError; end
     class InvalidKeyForIndex < StandardError; end
@@ -21,36 +29,31 @@ module MoneyTree
         depth: hex.slice!(0..1).to_i(16),
         parent_fingerprint: hex.slice!(0..7),
         index: hex.slice!(0..7).to_i(16),
-        chain_code: hex.slice!(0..63).to_i(16)
+        chain_code: hex.slice!(0..63).to_i(16),
       }.merge(parse_out_key(hex)))
     end
 
-    def self.from_serialized_address(address)
-      puts 'Node.from_serialized_address is DEPRECATED. Please use .from_bip32 instead.'
-      from_bip32(address)
-    end
-
     def self.parse_out_key(hex)
-      if hex.slice(0..1) == '00'
+      if hex.slice(0..1) == "00"
         private_key = MoneyTree::PrivateKey.new(key: hex.slice(2..-1))
         {
           private_key: private_key,
-          public_key: MoneyTree::PublicKey.new(private_key)
+          public_key: MoneyTree::PublicKey.new(private_key),
         }
       elsif %w(02 03).include? hex.slice(0..1)
         { public_key: MoneyTree::PublicKey.new(hex) }
       else
-        raise ImportError, 'Public or private key data does not match version type'
+        raise ImportError, "Public or private key data does not match version type"
       end
     end
 
     def is_private?
-      index >= 0x80000000 || index < 0
+      index >= PRIVATE_RANGE_LIMIT || index < 0
     end
 
     def index_hex(i = index)
       if i < 0
-        [i].pack('l>').unpack('H*').first
+        [i].pack("l>").unpack("H*").first
       else
         i.to_s(16).rjust(8, "0")
       end
@@ -69,29 +72,45 @@ module MoneyTree
     end
 
     def i_as_bytes(i)
-      [i].pack('N')
+      [i].pack("N")
     end
 
     def derive_private_key(i = 0)
-      message = i >= 0x80000000 || i < 0 ? private_derivation_message(i) : public_derivation_message(i)
+      message = i >= PRIVATE_RANGE_LIMIT || i < 0 ? private_derivation_message(i) : public_derivation_message(i)
       hash = hmac_sha512 hex_to_bytes(chain_code_hex), message
       left_int = left_from_hash(hash)
-      raise InvalidKeyForIndex, 'greater than or equal to order' if left_int >= MoneyTree::Key::ORDER # very low probability
+      raise InvalidKeyForIndex, "greater than or equal to order" if left_int >= MoneyTree::Key::ORDER # very low probability
       child_private_key = (left_int + private_key.to_i) % MoneyTree::Key::ORDER
-      raise InvalidKeyForIndex, 'equal to zero' if child_private_key == 0 # very low probability
+      raise InvalidKeyForIndex, "equal to zero" if child_private_key == 0 # very low probability
       child_chain_code = right_from_hash(hash)
       return child_private_key, child_chain_code
     end
 
+    def derive_parent_node(parent_key)
+      message = parent_key.public_key.to_bytes << i_as_bytes(index)
+      hash = hmac_sha512 hex_to_bytes(parent_key.chain_code_hex), message
+      priv = (private_key.to_i - left_from_hash(hash)) % MoneyTree::Key::ORDER
+      MoneyTree::Node.new(depth: parent_key.depth,
+                          index: parent_key.index,
+                          private_key: MoneyTree::PrivateKey.new(key: priv),
+                          public_key: parent_key.public_key,
+                          chain_code: parent_key.chain_code)
+    end
+
     def derive_public_key(i = 0)
-      raise PrivatePublicMismatch if i >= 0x80000000
+      raise PrivatePublicMismatch if i >= PRIVATE_RANGE_LIMIT
       message = public_derivation_message(i)
       hash = hmac_sha512 hex_to_bytes(chain_code_hex), message
       left_int = left_from_hash(hash)
-      raise InvalidKeyForIndex, 'greater than or equal to order' if left_int >= MoneyTree::Key::ORDER # very low probability
+      raise InvalidKeyForIndex, "greater than or equal to order" if left_int >= MoneyTree::Key::ORDER # very low probability
       factor = BN.new left_int.to_s
-      child_public_key = public_key.uncompressed.group.generator.mul(factor).add(public_key.uncompressed.point).to_bn.to_i
-      raise InvalidKeyForIndex, 'at infinity' if child_public_key == 1/0.0 # very low probability
+
+      gen_point = public_key.uncompressed.group.generator.mul(factor)
+
+      sum_point_hex = MoneyTree::OpenSSLExtensions.add(gen_point, public_key.uncompressed.point)
+      child_public_key = OpenSSL::PKey::EC::Point.new(public_key.group, OpenSSL::BN.new(sum_point_hex, 16)).to_bn.to_i
+
+      raise InvalidKeyForIndex, "at infinity" if child_public_key == 1 / 0.0 # very low probability
       child_chain_code = right_from_hash(hash)
       return child_public_key, child_chain_code
     end
@@ -120,12 +139,7 @@ module MoneyTree
       to_serialized_base58 to_serialized_hex(type, network: network)
     end
 
-    def to_serialized_address(type = :public, network: :bitcoin)
-      puts 'Node.to_serialized_address is DEPRECATED. Please use .to_bip32.'
-      to_bip32(type, network: network)
-    end
-
-    def to_identifier(compressed=true)
+    def to_identifier(compressed = true)
       key = compressed ? public_key.compressed : public_key.uncompressed
       key.to_ripemd160
     end
@@ -138,13 +152,23 @@ module MoneyTree
       if @parent_fingerprint
         @parent_fingerprint
       else
-        depth.zero? ? '00000000' : parent.to_fingerprint
+        depth.zero? ? "00000000" : parent.to_fingerprint
       end
     end
 
-    def to_address(compressed=true, network: :bitcoin)
+    def to_address(compressed = true, network: :bitcoin)
       address = NETWORKS[network][:address_version] + to_identifier(compressed)
       to_serialized_base58 address
+    end
+
+    def to_p2wpkh_p2sh(network: :bitcoin)
+      public_key.to_p2wpkh_p2sh(network: network)
+    end
+
+    def to_bech32_address(network: :bitcoin)
+      hrp = NETWORKS[network][:human_readable_part]
+      witprog = to_identifier
+      to_serialized_bech32(hrp, witprog)
     end
 
     def subnode(i = 0, opts = {})
@@ -157,7 +181,7 @@ module MoneyTree
         child_public_key = MoneyTree::PublicKey.new child_private_key
       end
 
-      MoneyTree::Node.new( depth: depth+1,
+      MoneyTree::Node.new(depth: depth + 1,
                           index: i,
                           private_key: private_key.nil? ? nil : child_private_key,
                           public_key: child_public_key,
@@ -177,9 +201,9 @@ module MoneyTree
     #
     # You should choose either the p or the negative number convention for private key derivation.
     def node_for_path(path)
-      force_public = path[-4..-1] == '.pub'
+      force_public = path[-4..-1] == ".pub"
       path = path[0..-5] if force_public
-      parts = path.split('/')
+      parts = path.split("/")
       nodes = []
       parts.each_with_index do |part, depth|
         if part =~ /m/i
@@ -190,7 +214,7 @@ module MoneyTree
           nodes << node.subnode(i)
         end
       end
-      if force_public or parts.first == 'M'
+      if force_public or parts.first == "M"
         node = nodes.last
         node.strip_private_info!
         node
@@ -199,17 +223,19 @@ module MoneyTree
       end
     end
 
-    def parse_index(path_part)
-      is_prime = %w(p ').include? path_part[-1]
-      i = path_part.to_i
+    def negative?(path_part)
+      relative_index = path_part.to_i
+      prime_symbol_present = %w(p ').include?(path_part[-1])
+      minus_present = path_part[0] == "-"
+      private_range = relative_index >= PRIVATE_RANGE_LIMIT
+      negative_value = relative_index < 0
+      prime_symbol_present || minus_present || private_range || negative_value
+    end
 
-      i = if i < 0
-        i
-      elsif is_prime
-        i | 0x80000000
-      else
-        i & 0x7fffffff
-      end
+    def parse_index(path_part)
+      index = path_part.to_i
+      return index | PRIVATE_RANGE_LIMIT if negative?(path_part)
+      index
     end
 
     def strip_private_info!
@@ -246,7 +272,7 @@ module MoneyTree
         raise SeedGeneration::ImportError unless seed_valid?(@seed_hash)
         set_seeded_keys
       elsif opts[:private_key] || opts[:public_key]
-        raise ImportError, 'chain code required' unless opts[:chain_code]
+        raise ImportError, "chain code required" unless opts[:chain_code]
         @chain_code = opts[:chain_code]
         if opts[:private_key]
           @private_key = opts[:private_key]
@@ -256,8 +282,7 @@ module MoneyTree
             opts[:public_key]
           else
             MoneyTree::PublicKey.new(opts[:public_key])
-          end
-        end
+          end         end
       else
         generate_seed
         set_seeded_keys

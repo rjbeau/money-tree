@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: MoneyTree::PublicKey
+  
+    &mdash; Documentation by YARD 0.9.36
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "MoneyTree::PublicKey";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (P)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../MoneyTree.html" title="MoneyTree (module)">MoneyTree</a></span></span>
+     &raquo; 
+    <span class="title">PublicKey</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: MoneyTree::PublicKey
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName"><span class='object_link'><a href="Key.html" title="MoneyTree::Key (class)">Key</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="Key.html" title="MoneyTree::Key (class)">Key</a></span></li>
+          
+            <li class="next">MoneyTree::PublicKey</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/money-tree/key.rb</dd>
+  </dl>
+  
+</div>
+
+
+
+
+  <h2>Constant Summary</h2>
+  
+  <h3 class="inherited">Constants inherited
+     from <span class='object_link'><a href="Key.html" title="MoneyTree::Key (class)">Key</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Key.html#GROUP_NAME-constant" title="MoneyTree::Key::GROUP_NAME (constant)">Key::GROUP_NAME</a></span>, <span class='object_link'><a href="Key.html#ORDER-constant" title="MoneyTree::Key::ORDER (constant)">Key::ORDER</a></span></p>
+
+  
+  
+  <h3 class="inherited">Constants included
+     from <span class='object_link'><a href="Support.html" title="MoneyTree::Support (module)">Support</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Support.html#BASE58_CHARS-constant" title="MoneyTree::Support::BASE58_CHARS (constant)">Support::BASE58_CHARS</a></span>, <span class='object_link'><a href="Support.html#INT32_MAX-constant" title="MoneyTree::Support::INT32_MAX (constant)">Support::INT32_MAX</a></span>, <span class='object_link'><a href="Support.html#INT64_MAX-constant" title="MoneyTree::Support::INT64_MAX (constant)">Support::INT64_MAX</a></span></p>
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#group-instance_method" title="#group (instance method)">#<strong>group</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute group.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#key_int-instance_method" title="#key_int (instance method)">#<strong>key_int</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute key_int.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#point-instance_method" title="#point (instance method)">#<strong>point</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute point.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#private_key-instance_method" title="#private_key (instance method)">#<strong>private_key</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute private_key.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="Key.html" title="MoneyTree::Key (class)">Key</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Key.html#ec_key-instance_method" title="MoneyTree::Key#ec_key (method)">#ec_key</a></span>, <span class='object_link'><a href="Key.html#key-instance_method" title="MoneyTree::Key#key (method)">#key</a></span>, <span class='object_link'><a href="Key.html#options-instance_method" title="MoneyTree::Key#options (method)">#options</a></span>, <span class='object_link'><a href="Key.html#raw_key-instance_method" title="MoneyTree::Key#raw_key (method)">#raw_key</a></span></p>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#compressed-instance_method" title="#compressed (instance method)">#<strong>compressed</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#compressed_hex_format%3F-instance_method" title="#compressed_hex_format? (instance method)">#<strong>compressed_hex_format?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#compression-instance_method" title="#compression (instance method)">#<strong>compression</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#compression=-instance_method" title="#compression= (instance method)">#<strong>compression=</strong>(compression_type = :compressed)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hex_format%3F-instance_method" title="#hex_format? (instance method)">#<strong>hex_format?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(p_key, opts = {})  &#x21d2; PublicKey </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of PublicKey.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parse_raw_key-instance_method" title="#parse_raw_key (instance method)">#<strong>parse_raw_key</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_point-instance_method" title="#set_point (instance method)">#<strong>set_point</strong>(int = to_i, opts = {})  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_address-instance_method" title="#to_address (instance method)">#<strong>to_address</strong>(network: :bitcoin)  &#x21d2; Object </a>
+    
+
+    
+      (also: #to_s)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_bech32_address-instance_method" title="#to_bech32_address (instance method)">#<strong>to_bech32_address</strong>(network: :bitcoin)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_bytes-instance_method" title="#to_bytes (instance method)">#<strong>to_bytes</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_fingerprint-instance_method" title="#to_fingerprint (instance method)">#<strong>to_fingerprint</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_hex-instance_method" title="#to_hex (instance method)">#<strong>to_hex</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_i-instance_method" title="#to_i (instance method)">#<strong>to_i</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_p2wpkh_p2sh-instance_method" title="#to_p2wpkh_p2sh (instance method)">#<strong>to_p2wpkh_p2sh</strong>(network: :bitcoin)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_ripemd160-instance_method" title="#to_ripemd160 (instance method)">#<strong>to_ripemd160</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#uncompressed-instance_method" title="#uncompressed (instance method)">#<strong>uncompressed</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Key.html" title="MoneyTree::Key (class)">Key</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Key.html#valid%3F-instance_method" title="MoneyTree::Key#valid? (method)">#valid?</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Support.html" title="MoneyTree::Support (module)">Support</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Support.html#base58_to_int-instance_method" title="MoneyTree::Support#base58_to_int (method)">#base58_to_int</a></span>, <span class='object_link'><a href="Support.html#bytes_to_hex-instance_method" title="MoneyTree::Support#bytes_to_hex (method)">#bytes_to_hex</a></span>, <span class='object_link'><a href="Support.html#bytes_to_int-instance_method" title="MoneyTree::Support#bytes_to_int (method)">#bytes_to_int</a></span>, <span class='object_link'><a href="Support.html#convert_p2wpkh_p2sh-instance_method" title="MoneyTree::Support#convert_p2wpkh_p2sh (method)">#convert_p2wpkh_p2sh</a></span>, <span class='object_link'><a href="Support.html#custom_hash_160-instance_method" title="MoneyTree::Support#custom_hash_160 (method)">#custom_hash_160</a></span>, <span class='object_link'><a href="Support.html#decode_base58-instance_method" title="MoneyTree::Support#decode_base58 (method)">#decode_base58</a></span>, <span class='object_link'><a href="Support.html#decode_base64-instance_method" title="MoneyTree::Support#decode_base64 (method)">#decode_base64</a></span>, <span class='object_link'><a href="Support.html#digestify-instance_method" title="MoneyTree::Support#digestify (method)">#digestify</a></span>, <span class='object_link'><a href="Support.html#encode_base58-instance_method" title="MoneyTree::Support#encode_base58 (method)">#encode_base58</a></span>, <span class='object_link'><a href="Support.html#encode_base64-instance_method" title="MoneyTree::Support#encode_base64 (method)">#encode_base64</a></span>, <span class='object_link'><a href="Support.html#encode_p2wpkh_p2sh-instance_method" title="MoneyTree::Support#encode_p2wpkh_p2sh (method)">#encode_p2wpkh_p2sh</a></span>, <span class='object_link'><a href="Support.html#from_serialized_base58-instance_method" title="MoneyTree::Support#from_serialized_base58 (method)">#from_serialized_base58</a></span>, <span class='object_link'><a href="Support.html#hex_to_bytes-instance_method" title="MoneyTree::Support#hex_to_bytes (method)">#hex_to_bytes</a></span>, <span class='object_link'><a href="Support.html#hex_to_int-instance_method" title="MoneyTree::Support#hex_to_int (method)">#hex_to_int</a></span>, <span class='object_link'><a href="Support.html#hmac_sha512-instance_method" title="MoneyTree::Support#hmac_sha512 (method)">#hmac_sha512</a></span>, <span class='object_link'><a href="Support.html#hmac_sha512_hex-instance_method" title="MoneyTree::Support#hmac_sha512_hex (method)">#hmac_sha512_hex</a></span>, <span class='object_link'><a href="Support.html#int_to_base58-instance_method" title="MoneyTree::Support#int_to_base58 (method)">#int_to_base58</a></span>, <span class='object_link'><a href="Support.html#int_to_bytes-instance_method" title="MoneyTree::Support#int_to_bytes (method)">#int_to_bytes</a></span>, <span class='object_link'><a href="Support.html#int_to_hex-instance_method" title="MoneyTree::Support#int_to_hex (method)">#int_to_hex</a></span>, <span class='object_link'><a href="Support.html#ripemd160-instance_method" title="MoneyTree::Support#ripemd160 (method)">#ripemd160</a></span>, <span class='object_link'><a href="Support.html#sha256-instance_method" title="MoneyTree::Support#sha256 (method)">#sha256</a></span>, <span class='object_link'><a href="Support.html#to_serialized_base58-instance_method" title="MoneyTree::Support#to_serialized_base58 (method)">#to_serialized_base58</a></span>, <span class='object_link'><a href="Support.html#to_serialized_bech32-instance_method" title="MoneyTree::Support#to_serialized_bech32 (method)">#to_serialized_bech32</a></span></p>
+
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(p_key, opts = {})  &#x21d2; <tt><span class='object_link'><a href="" title="MoneyTree::PublicKey (class)">PublicKey</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new instance of PublicKey.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/money-tree/key.rb', line 171</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_p_key'>p_key</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@options</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span>
+  <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:compressed</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:compressed</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_p_key'>p_key</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="PrivateKey.html" title="MoneyTree::PrivateKey (class)">PrivateKey</a></span></span><span class='rparen'>)</span>
+    <span class='ivar'>@private_key</span> <span class='op'>=</span> <span class='id identifier rubyid_p_key'>p_key</span>
+    <span class='ivar'>@point</span> <span class='op'>=</span> <span class='ivar'>@private_key</span><span class='period'>.</span><span class='id identifier rubyid_calculate_public_key'>calculate_public_key</span><span class='lparen'>(</span><span class='ivar'>@options</span><span class='rparen'>)</span>
+    <span class='ivar'>@group</span> <span class='op'>=</span> <span class='ivar'>@point</span><span class='period'>.</span><span class='id identifier rubyid_group'>group</span>
+    <span class='ivar'>@key</span> <span class='op'>=</span> <span class='ivar'>@raw_key</span> <span class='op'>=</span> <span class='id identifier rubyid_to_hex'>to_hex</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@raw_key</span> <span class='op'>=</span> <span class='id identifier rubyid_p_key'>p_key</span>
+    <span class='ivar'>@group</span> <span class='op'>=</span> <span class='const'>PKey</span><span class='op'>::</span><span class='const'>EC</span><span class='op'>::</span><span class='const'>Group</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='const'><span class='object_link'><a href="Key.html#GROUP_NAME-constant" title="MoneyTree::Key::GROUP_NAME (constant)">GROUP_NAME</a></span></span>
+    <span class='ivar'>@key</span> <span class='op'>=</span> <span class='id identifier rubyid_parse_raw_key'>parse_raw_key</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Must initialize with a MoneyTree::PrivateKey or a public key value</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@key</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="group-instance_method">
+  
+    #<strong>group</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute group.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+169
+170
+171</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/money-tree/key.rb', line 169</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_group'>group</span>
+  <span class='ivar'>@group</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="key_int-instance_method">
+  
+    #<strong>key_int</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute key_int.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+169
+170
+171</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/money-tree/key.rb', line 169</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_key_int'>key_int</span>
+  <span class='ivar'>@key_int</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="point-instance_method">
+  
+    #<strong>point</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute point.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+169
+170
+171</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/money-tree/key.rb', line 169</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_point'>point</span>
+  <span class='ivar'>@point</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="private_key-instance_method">
+  
+    #<strong>private_key</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute private_key.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+169
+170
+171</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/money-tree/key.rb', line 169</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_private_key'>private_key</span>
+  <span class='ivar'>@private_key</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="compressed-instance_method">
+  
+    #<strong>compressed</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+196
+197
+198
+199
+200</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/money-tree/key.rb', line 196</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_compressed'>compressed</span>
+  <span class='id identifier rubyid_compressed_key'>compressed_key</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_raw_key'>raw_key</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='comment'># deep clone
+</span>  <span class='id identifier rubyid_compressed_key'>compressed_key</span><span class='period'>.</span><span class='id identifier rubyid_set_point'>set_point</span> <span class='id identifier rubyid_to_i'>to_i</span><span class='comma'>,</span> <span class='label'>compressed:</span> <span class='kw'>true</span>
+  <span class='id identifier rubyid_compressed_key'>compressed_key</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="compressed_hex_format?-instance_method">
+  
+    #<strong>compressed_hex_format?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+234
+235
+236</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/money-tree/key.rb', line 234</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_compressed_hex_format?'>compressed_hex_format?</span>
+  <span class='id identifier rubyid_raw_key'>raw_key</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>==</span> <span class='int'>66</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_raw_key'>raw_key</span><span class='lbracket'>[</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\H</span><span class='regexp_end'>/</span></span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="compression-instance_method">
+  
+    #<strong>compression</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+188
+189
+190</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/money-tree/key.rb', line 188</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_compression'>compression</span>
+  <span class='ivar'>@group</span><span class='period'>.</span><span class='id identifier rubyid_point_conversion_form'>point_conversion_form</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="compression=-instance_method">
+  
+    #<strong>compression=</strong>(compression_type = :compressed)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+192
+193
+194</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/money-tree/key.rb', line 192</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_compression='>compression=</span><span class='lparen'>(</span><span class='id identifier rubyid_compression_type'>compression_type</span> <span class='op'>=</span> <span class='symbol'>:compressed</span><span class='rparen'>)</span>
+  <span class='ivar'>@group</span><span class='period'>.</span><span class='id identifier rubyid_point_conversion_form'>point_conversion_form</span> <span class='op'>=</span> <span class='id identifier rubyid_compression_type'>compression_type</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="hex_format?-instance_method">
+  
+    #<strong>hex_format?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+230
+231
+232</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/money-tree/key.rb', line 230</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_hex_format?'>hex_format?</span>
+  <span class='id identifier rubyid_raw_key'>raw_key</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>==</span> <span class='int'>130</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_raw_key'>raw_key</span><span class='lbracket'>[</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\H</span><span class='regexp_end'>/</span></span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="parse_raw_key-instance_method">
+  
+    #<strong>parse_raw_key</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/money-tree/key.rb', line 217</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_parse_raw_key'>parse_raw_key</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id identifier rubyid_raw_key'>raw_key</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_set_point'>set_point</span> <span class='id identifier rubyid_raw_key'>raw_key</span>
+    <span class='kw'>elsif</span> <span class='id identifier rubyid_hex_format?'>hex_format?</span>
+      <span class='id identifier rubyid_set_point'>set_point</span> <span class='id identifier rubyid_hex_to_int'>hex_to_int</span><span class='lparen'>(</span><span class='id identifier rubyid_raw_key'>raw_key</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='label'>compressed:</span> <span class='kw'>false</span>
+    <span class='kw'>elsif</span> <span class='id identifier rubyid_compressed_hex_format?'>compressed_hex_format?</span>
+      <span class='id identifier rubyid_set_point'>set_point</span> <span class='id identifier rubyid_hex_to_int'>hex_to_int</span><span class='lparen'>(</span><span class='id identifier rubyid_raw_key'>raw_key</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='label'>compressed:</span> <span class='kw'>true</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Key/KeyFormatNotFound.html" title="MoneyTree::Key::KeyFormatNotFound (class)">KeyFormatNotFound</a></span></span>
+    <span class='kw'>end</span>
+  <span class='id identifier rubyid_to_hex'>to_hex</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_point-instance_method">
+  
+    #<strong>set_point</strong>(int = to_i, opts = {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Key/KeyInvalid.html" title="MoneyTree::Key::KeyInvalid (class)">KeyInvalid</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+208
+209
+210
+211
+212
+213
+214
+215</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/money-tree/key.rb', line 208</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_set_point'>set_point</span><span class='lparen'>(</span><span class='id identifier rubyid_int'>int</span> <span class='op'>=</span> <span class='id identifier rubyid_to_i'>to_i</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:compressed</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:compressed</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_compression'>compression</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:compressed</span><span class='rbracket'>]</span> <span class='op'>?</span> <span class='symbol'>:compressed</span> <span class='op'>:</span> <span class='symbol'>:uncompressed</span>
+  <span class='id identifier rubyid_bn'>bn</span> <span class='op'>=</span> <span class='const'>BN</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_int_to_hex'>int_to_hex</span><span class='lparen'>(</span><span class='id identifier rubyid_int'>int</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='int'>16</span>
+  <span class='ivar'>@point</span> <span class='op'>=</span> <span class='const'>PKey</span><span class='op'>::</span><span class='const'>EC</span><span class='op'>::</span><span class='const'>Point</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_group'>group</span><span class='comma'>,</span> <span class='id identifier rubyid_bn'>bn</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Key/KeyInvalid.html" title="MoneyTree::Key::KeyInvalid (class)">KeyInvalid</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>point is not on the curve</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='ivar'>@point</span><span class='period'>.</span><span class='id identifier rubyid_on_curve?'>on_curve?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_address-instance_method">
+  
+    #<strong>to_address</strong>(network: :bitcoin)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='to_s-instance_method'>to_s</span></span>
+    </span>
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+251
+252
+253
+254
+255</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/money-tree/key.rb', line 251</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_address'>to_address</span><span class='lparen'>(</span><span class='label'>network:</span> <span class='symbol'>:bitcoin</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_hash'>hash</span> <span class='op'>=</span> <span class='id identifier rubyid_to_ripemd160'>to_ripemd160</span>
+  <span class='id identifier rubyid_address'>address</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../MoneyTree.html#NETWORKS-constant" title="MoneyTree::NETWORKS (constant)">NETWORKS</a></span></span><span class='lbracket'>[</span><span class='id identifier rubyid_network'>network</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:address_version</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_hash'>hash</span>
+  <span class='id identifier rubyid_to_serialized_base58'>to_serialized_base58</span> <span class='id identifier rubyid_address'>address</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_bech32_address-instance_method">
+  
+    #<strong>to_bech32_address</strong>(network: :bitcoin)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+264
+265
+266
+267
+268</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/money-tree/key.rb', line 264</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_bech32_address'>to_bech32_address</span><span class='lparen'>(</span><span class='label'>network:</span> <span class='symbol'>:bitcoin</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_hrp'>hrp</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../MoneyTree.html#NETWORKS-constant" title="MoneyTree::NETWORKS (constant)">NETWORKS</a></span></span><span class='lbracket'>[</span><span class='id identifier rubyid_network'>network</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:human_readable_part</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_witprog'>witprog</span> <span class='op'>=</span> <span class='id identifier rubyid_to_ripemd160'>to_ripemd160</span>
+  <span class='id identifier rubyid_to_serialized_bech32'>to_serialized_bech32</span><span class='lparen'>(</span><span class='id identifier rubyid_hrp'>hrp</span><span class='comma'>,</span> <span class='id identifier rubyid_witprog'>witprog</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_bytes-instance_method">
+  
+    #<strong>to_bytes</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+275
+276
+277</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/money-tree/key.rb', line 275</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_bytes'>to_bytes</span>
+  <span class='id identifier rubyid_int_to_bytes'>int_to_bytes</span> <span class='id identifier rubyid_to_i'>to_i</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_fingerprint-instance_method">
+  
+    #<strong>to_fingerprint</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+270
+271
+272
+273</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/money-tree/key.rb', line 270</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_fingerprint'>to_fingerprint</span>
+  <span class='id identifier rubyid_hash'>hash</span> <span class='op'>=</span> <span class='id identifier rubyid_to_ripemd160'>to_ripemd160</span>
+  <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_slice'>slice</span><span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='int'>7</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_hex-instance_method">
+  
+    #<strong>to_hex</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+238
+239
+240</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/money-tree/key.rb', line 238</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_hex'>to_hex</span>
+  <span class='id identifier rubyid_int_to_hex'>int_to_hex</span> <span class='id identifier rubyid_to_i'>to_i</span><span class='comma'>,</span> <span class='int'>66</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_i-instance_method">
+  
+    #<strong>to_i</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+242
+243
+244</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/money-tree/key.rb', line 242</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_i'>to_i</span>
+  <span class='id identifier rubyid_point'>point</span><span class='period'>.</span><span class='id identifier rubyid_to_bn'>to_bn</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_p2wpkh_p2sh-instance_method">
+  
+    #<strong>to_p2wpkh_p2sh</strong>(network: :bitcoin)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+259
+260
+261
+262</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/money-tree/key.rb', line 259</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_p2wpkh_p2sh'>to_p2wpkh_p2sh</span><span class='lparen'>(</span><span class='label'>network:</span> <span class='symbol'>:bitcoin</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_prefix'>prefix</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'><span class='object_link'><a href="../MoneyTree.html#NETWORKS-constant" title="MoneyTree::NETWORKS (constant)">NETWORKS</a></span></span><span class='lbracket'>[</span><span class='id identifier rubyid_network'>network</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:p2sh_version</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_pack'>pack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>H*</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_convert_p2wpkh_p2sh'>convert_p2wpkh_p2sh</span><span class='lparen'>(</span><span class='id identifier rubyid_to_hex'>to_hex</span><span class='comma'>,</span> <span class='id identifier rubyid_prefix'>prefix</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_ripemd160-instance_method">
+  
+    #<strong>to_ripemd160</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+246
+247
+248
+249</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/money-tree/key.rb', line 246</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_ripemd160'>to_ripemd160</span>
+  <span class='id identifier rubyid_hash'>hash</span> <span class='op'>=</span> <span class='id identifier rubyid_sha256'>sha256</span> <span class='id identifier rubyid_to_hex'>to_hex</span>
+  <span class='id identifier rubyid_ripemd160'>ripemd160</span> <span class='id identifier rubyid_hash'>hash</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="uncompressed-instance_method">
+  
+    #<strong>uncompressed</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+202
+203
+204
+205
+206</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/money-tree/key.rb', line 202</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_uncompressed'>uncompressed</span>
+  <span class='id identifier rubyid_uncompressed_key'>uncompressed_key</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_raw_key'>raw_key</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='comment'># deep clone
+</span>  <span class='id identifier rubyid_uncompressed_key'>uncompressed_key</span><span class='period'>.</span><span class='id identifier rubyid_set_point'>set_point</span> <span class='id identifier rubyid_to_i'>to_i</span><span class='comma'>,</span> <span class='label'>compressed:</span> <span class='kw'>false</span>
+  <span class='id identifier rubyid_uncompressed_key'>uncompressed_key</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Thu Jul 25 05:51:52 2024 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.36 (ruby-3.0.7).
+</div>
+
+    </div>
+  </body>
+</html>
